@@ -1,6 +1,6 @@
 export interface Drink {
-    id: String;
-    name: String;
-    type?: String;
-    abv?: Number;
+    id: string;
+    name: string;
+    type?: string;
+    abv?: number;
 }
