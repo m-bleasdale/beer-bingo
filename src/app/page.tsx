@@ -2,6 +2,8 @@ import Image from "next/image";
 import Drinks from "../components/drinks";
 import isLoggedIn from "@/utils/isLoggedIn";
 import LoginPrompt from "@/components/login-prompt";
+import { Suspense } from "react";
+import Loading from "@/components/loading";
 
 export default async function Home() {
 
@@ -14,7 +16,9 @@ export default async function Home() {
 				<p>Built by <a href="https://mbleasdale.com" target="_blank" className="underline text-blue-800">Morgan Bleasdale</a></p>
 			</div>
 			{!loggedIn && <LoginPrompt />}
-			<Drinks />
+			<Suspense fallback={<Loading />}>
+				<Drinks />
+			</Suspense>
 		</div>
   );
 }
