@@ -8,7 +8,7 @@ function isInLastHour(mostRecentDrink : String) {
     const date = new Date(mostRecentDrink.replace(/\.(\d{3})\d+/, '.$1'));
     const now = new Date();
     const oneHourAgo = new Date(now.getTime() - 60 * 60 * 1000);
-    return date >= oneHourAgo && date <= now;
+    return date >= oneHourAgo;
 }
 
 export default async function Drinks () {
