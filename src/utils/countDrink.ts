@@ -9,9 +9,6 @@ function lastDrinkInTimeout (lastDrink : String) {
     const date = new Date(lastDrink.replace(/\.(\d{3})\d+/, '.$1'));
     const now = new Date(); 
     const timeOutStart = new Date(now.getTime() - timeout);
-    console.log('date: ', date)
-    console.log('now: ', now)
-    console.log('timeOutStart: ', timeOutStart)
     return date >= timeOutStart;
 }
 
@@ -29,9 +26,6 @@ export default async function countDrink (drinkID : String) {
         .order('drunk_at', { ascending: false })
         .limit(1)
         .single();
-
-    console.log('date as is enterred', last_drink?.drunk_at)
-    console.log('output', lastDrinkInTimeout(last_drink?.drunk_at))
 
     if(lastDrinkInTimeout(last_drink?.drunk_at) === true) return;
 
