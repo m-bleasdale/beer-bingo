@@ -1,11 +1,18 @@
 # Beer Bingo 
+---
 
-Beer Bingo is a gamified tool to encourage users to track their alcohol consumption.
+Website: [beerbingo.co.uk](https://www.beerbingo.co.uk/)
+
+---
+
+Beer Bingo is a gamified tool to encourage users to track their alcohol consumption, with the objective of reducing alcohol intake. This is inspired by calorie counting apps, which are used to help reduce food intake and lose weight.
 
 It contains a database of common drinks found in UK pubs and establishments. Users must press "Add Drink" everytime they consume a particular beverage. Over time, they can recieve a Bronze, Silver, Gold or Diamond ranking for that particular drink. 
-Users can also see the total for a specific drink, and soon will be able to track their general drinking trends. For example, future updates will allow users to see their consumption over time intervals such as the last 24 hours, month, etc; as well as their most consumed drink.
+Users are also able to view a statistics page, allowing them to see how much alcohol they have consumed in given time periods. They can also see their most consumed drink.
 
 Built using Next.js and Supabase.
+
+Based on [community feedback](https://www.beerbingo.co.uk/feedback), features continue to be added to this app.
 
 _This project does not aim to encourage excess alcohol consumption._
 
@@ -13,13 +20,15 @@ _This project does not aim to encourage excess alcohol consumption._
 
 ### Drink Database
 
-Users are shown a list of drinks, to mark one of these drinks as consumed, they can press "Add Drink". There is also an undo button to remove the last record in case of error.
+Users are shown a list of drinks, to mark one of these drinks as consumed, they can press "Add Drink". There is also an undo button to remove the last record in case of error. Users must wait 10 seconds before adding another drink.
 
 Drinks are stored in the `drinks` table of the Supabase database and their images are stored in a Supabase S3 Bucket. These are fetched before rendering, allowing drinks to be easily updated.
 
 <br />
 
 <img width="1806" height="1206" alt="image" src="https://github.com/user-attachments/assets/0d5dd958-8faa-4c88-b815-b096f56054c2" />
+
+---
 
 ### Rankings
 
@@ -34,6 +43,29 @@ When each drink is loaded, the historic records for the current user are fetched
 <img width="1415" height="488" alt="image" src="https://github.com/user-attachments/assets/c3bfbea1-2e6f-4ab5-ab21-11a916f9f0ec" />
 
 _In the order shown, rank (number of drinks): Bronze (1), Silver (5), Gold (10), Diamond (20)_
+
+---
+
+### Statistics
+
+Filtering the `history` records into time intervals allows the number of drinks and a graph of drinking habits to be shown. This is on the stats page. Only logged in users can see stats.
+
+<br />
+
+
+<img width="1329" height="943" alt="image" src="https://github.com/user-attachments/assets/33e2afb7-6b13-4cd8-95d4-0c68b1a5513c" />
+
+<br />
+<br />
+
+
+Additionally, the top 3 most consumed drinks are shown.
+
+<br />
+
+<img width="1393" height="675" alt="image" src="https://github.com/user-attachments/assets/306c7d1f-6bc5-41f3-953b-937d056eac23" />
+
+---
 
 ### User Management
 
