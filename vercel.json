@@ -1,10 +1,10 @@
 {
   "functions": {
     "api/**/*.{js,ts}": {
-      "regions": ["dub1"]
+      "regions": ["lhr1"]
     },
     "app/**/*.{js,ts}": {
-      "regions": ["dub1"]
+      "regions": ["lhr1"]
     }
   }
 }
