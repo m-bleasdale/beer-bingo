@@ -24,7 +24,7 @@ export default function StatCard ({description, title, trendStat, trend} : StatC
                 return (
                     <Badge className="bg-green-700">
                         <ChevronDown className="size-4" strokeWidth={3}/>
-                        -{trendStat}%
+                        {trendStat}%
                     </Badge>
                 );
             case 'none':
