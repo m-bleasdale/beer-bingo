@@ -26,6 +26,14 @@ export default function Page () {
                 </a>
 
                 <div className="flex flex-col w-full lg:w-200 gap-4">
+                    <h2 className="text-lg font-semibold">v1.0.2 Changelog, 3rd September 2025</h2>
+                    <p className="text-md">Based on the last round of community feedback, the following has been updated:</p>
+                    <p className="text-md">- Fixed two negative signs appearing</p>
+                    <p className="text-md">- Optimisation improvements</p>
+                    <p className="text-md">- Navigation UI adjustments </p>
+                </div>
+
+                <div className="flex flex-col w-full lg:w-200 gap-4">
                     <h2 className="text-lg font-semibold">v1.0.1 Changelog, 29th August 2025</h2>
                     <p className="text-md">Based on the last round of community feedback, the following has been updated:</p>
                     <p className="text-md">- Added support for non-beer drinks, such as mixers and shots</p>

@@ -18,7 +18,7 @@ export default async function Page () {
 			</div>
             <div className="flex flex-row gap-2 items-center">
                 <a href="/">
-                    <Button variant="outline">Back to home</Button>
+                    <Button>Back to home</Button>
                 </a>
                 <a href="/feedback">
                     <Button variant="outline">Feedback</Button>
