@@ -53,7 +53,7 @@ Filtering the `history` records into time intervals allows the number of drinks 
 <br />
 
 
-<img width="1329" height="943" alt="image" src="https://github.com/user-attachments/assets/33e2afb7-6b13-4cd8-95d4-0c68b1a5513c" />
+<img width="1149" height="763" alt="image" src="https://github.com/user-attachments/assets/3f45c619-b5b6-4206-9558-f06b6561af55" />
 
 <br />
 <br />
