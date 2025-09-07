@@ -64,6 +64,8 @@ export default function DrinkCard ({drink, imageURL, initialCount, displayUndo, 
         setCount(count - 1);
     }
 
+    //onError={(e) => e.currentTarget.src = `/public/drinks/${drink.type}.png`} 
+
     return (
         <div className="p-5 border rounded-xl w-68 flex flex-col" style={{background: background}}>
             <div className="flex justify-center items-center">

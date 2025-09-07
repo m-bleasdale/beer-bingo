@@ -2,6 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import { DrinkCardData } from "@/types/drink-card-data";
 import isLoggedIn from "@/utils/isLoggedIn";
 import DrinkListProvider from "./drink-list-provider";
+import Error from "./error";
 
 function isInLastHour(mostRecentDrink : String) {
     if(!mostRecentDrink) return false;
@@ -14,27 +15,47 @@ function isInLastHour(mostRecentDrink : String) {
 export default async function Drinks () {
     const supabase = await createClient();
 
+    //Getting all drink data
     const {data: drinksListFromDB, error} = await supabase
         .from('drinks')
         .select('id, name, type, abv')
         .order('name', {ascending: true})
     
-    if(error) return;
+    if(error) return <Error />
 
+    //Getting all images in drinks bucket
+    const {data: drinkImages, error: drinkImages_error} = await supabase.storage
+        .from('drinks')
+        .list('');
+    
+    if(drinkImages_error) return <Error />
+
+    //Get IDs of drinks with an image
+    const drinkIDsWithImage = drinkImages.map(image => image.name.replace(/\.png$/i, ''));
+
+    //Check user is logged in, and get ID
     const { data: user_data, error: user_error } = await supabase.auth.getUser();
     const loggedIn = await isLoggedIn();
 
+    //Init drinksList
     let drinksList : DrinkCardData[] = [];
 
+    //Loop through drinks constructing data for card
     for (const drink of drinksListFromDB) {
-        const { data: image } = supabase.storage
-            .from('drinks')
-            .getPublicUrl(`${drink.id}.png`, 
-                {
-                transform: { height: 500, width: 500, resize: "contain"},
-            }
-            );
-            
+        
+        //If drink has an image, get url, otherwise: use a default
+        const drinkHasImage = drinkIDsWithImage.includes(drink.id);
+        const imageURL = drinkHasImage
+            ? supabase.storage
+                .from('drinks')
+                .getPublicUrl(`${drink.id}.png`, 
+                    {
+                    transform: { height: 500, width: 500, resize: "contain"},
+                    }
+                )
+                .data.publicUrl
+            : `/defaults/${drink.type}.png`;
+
         //Retrieve drink history in decending order (newest first)
         const { data: history_data, error: history_error } = await supabase
             .from('history')
@@ -50,7 +71,7 @@ export default async function Drinks () {
 
         drinksList.push({
             drink: drink,
-            imageURL: image.publicUrl,
+            imageURL: imageURL,
             initialCount: history_data?.length || 0,
             displayUndo: mostRecentWithinLastHour
         })
