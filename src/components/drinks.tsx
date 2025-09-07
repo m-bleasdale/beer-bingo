@@ -18,7 +18,7 @@ export default async function Drinks () {
     //Getting all drink data
     const {data: drinksListFromDB, error} = await supabase
         .from('drinks')
-        .select('id, name, type, abv')
+        .select('id, name, type, abv, user_added')
         .order('name', {ascending: true})
     
     if(error) return <Error />

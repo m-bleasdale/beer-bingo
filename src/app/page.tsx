@@ -43,7 +43,7 @@ export default async function Home() {
 			<Suspense fallback={<Loading />}>
 				<Drinks />
 			</Suspense>
-			<p className="mt-10 text-lg text-muted-foreground">Alcohol can affect your health. Want support to cut back? <a className="underline text-foreground font-semibold" href="https://www.drinkaware.co.uk/advice-and-support/alcohol-support-services/get-help-now/">Get help</a></p>
+			<p className="mt-10 text-lg text-muted-foreground text-center">Alcohol can affect your health. Want support to cut back? <a className="underline text-foreground font-semibold" href="https://www.drinkaware.co.uk/advice-and-support/alcohol-support-services/get-help-now/">Get help</a></p>
 		</div>
   );
 }

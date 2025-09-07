@@ -3,4 +3,5 @@ export interface Drink {
     name: string;
     type?: string;
     abv?: number;
+    user_added?: boolean;
 }

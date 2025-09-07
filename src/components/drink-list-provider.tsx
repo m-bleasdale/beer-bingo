@@ -3,6 +3,7 @@ import type { DrinkCardData } from "@/types/drink-card-data"
 import DrinkCard from "./drink-card"
 import { useState } from "react";
 import { Input } from "./ui/input";
+import AddNewDrink from "./AddNewDrink/add-new-drink";
 
 export default function DrinkListProvider ({drinksList, isLoggedIn} : {drinksList : DrinkCardData[], isLoggedIn : Boolean}) {
     const [search, setSearch] = useState("");
@@ -36,7 +37,13 @@ export default function DrinkListProvider ({drinksList, isLoggedIn} : {drinksLis
             )
             :
             (
-                <p>No results found</p>
+                <div className="flex flex-col gap-5 items-center mb-40">
+
+                    <p>No results found</p>
+
+                    <AddNewDrink />
+
+                </div>
             )
             }
         </div>

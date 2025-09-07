@@ -7,6 +7,8 @@ import countDrink from "@/utils/countDrink";
 import { useEffect, useState } from "react";
 import undoDrink from "@/utils/undoDrink";
 
+import { User } from 'lucide-react'
+
 interface DrinkCardProps {
     drink: Drink;
     imageURL: string;
@@ -68,6 +70,14 @@ export default function DrinkCard ({drink, imageURL, initialCount, displayUndo, 
 
     return (
         <div className="p-5 border rounded-xl w-68 flex flex-col" style={{background: background}}>
+            {drink.user_added && 
+                <div className="absolute w-58 my-[-5px] mx-[5px] flex justify-end">
+                    <div className="flex flex-row gap-0.5 bg-yellow-300 py-1 px-1.5 rounded-md items-center">
+                        <User size={14} strokeWidth={2.5}/>
+                        <p className="text-xs font-medium">User</p>
+                    </div>
+                </div>
+            }
             <div className="flex justify-center items-center">
                 <Image src={imageURL} alt={`Image of ${drink.name}`} height={200} width={200} objectFit="contain" />
             </div>
