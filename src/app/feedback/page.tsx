@@ -26,6 +26,15 @@ export default function Page () {
                 </a>
 
                 <div className="flex flex-col w-full lg:w-200 gap-4">
+                    <h2 className="text-lg font-semibold">v1.1 Changelog, 7th September 2025</h2>
+                    <p className="text-md">Introduced some major updates</p>
+                    <p className="text-md">- Added default images for drinks without an image</p>
+                    <p className="text-md">- Added the ability to upload user added drinks</p>
+                    <p className="text-md">- User added drinks have a "User" badge displayed on them</p>
+                    <p className="text-md">- Optimisation improvements </p>
+                </div>
+
+                <div className="flex flex-col w-full lg:w-200 gap-4">
                     <h2 className="text-lg font-semibold">v1.0.2 Changelog, 3rd September 2025</h2>
                     <p className="text-md">Based on the last round of community feedback, the following has been updated:</p>
                     <p className="text-md">- Fixed two negative signs appearing</p>
