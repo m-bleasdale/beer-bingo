@@ -1,7 +1,7 @@
 # Beer Bingo 
 ---
 
-Website: [beerbingo.co.uk](https://www.beerbingo.co.uk/)
+Website: [beerbingo.co.uk](https://www.beerbingo.co.uk/) | v1.1.1
 
 ---
 
@@ -26,7 +26,7 @@ Drinks are stored in the `drinks` table of the Supabase database and their image
 
 <br />
 
-<img width="1806" height="1206" alt="image" src="https://github.com/user-attachments/assets/0d5dd958-8faa-4c88-b815-b096f56054c2" />
+<img width="1564" height="1021" alt="image" src="https://github.com/user-attachments/assets/d6344201-1e33-4948-922f-0575639d716a" />
 
 ---
 
@@ -82,5 +82,32 @@ _I'll be releasing a demo of this auth flow, alongside a conventional login/sign
 <br />
 
 <img width="634" height="558" alt="image" src="https://github.com/user-attachments/assets/bfc26d7a-a25b-40ff-b7b2-81a7266dafc3" />
+
+---
+
+### User-Added Drinks
+
+Users can add drinks to the database by filling out the following form. 
+
+<br />
+
+<img width="598" height="494" alt="image" src="https://github.com/user-attachments/assets/0189a81d-5a68-42c4-8951-1cb28d2a6f69" />
+
+<br />
+
+This then loads that drink card with a special "User" tag and also displays an unbranded beer glass, depending on the beer type.
+
+<br />
+
+<img width="379" height="464" alt="image" src="https://github.com/user-attachments/assets/df05b44e-8df8-48bb-b954-394e87e8f1ac" />
+
+<br />
+
+The "default" drink images are shown below.
+
+<br />
+
+<img width="5131" height="1338" alt="Frame 53" src="https://github.com/user-attachments/assets/6c3421a2-fb79-4489-a06f-7f941c8306b7" />
+
 
 
