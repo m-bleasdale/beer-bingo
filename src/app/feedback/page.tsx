@@ -26,6 +26,13 @@ export default function Page () {
                 </a>
 
                 <div className="flex flex-col w-full lg:w-200 gap-4">
+                    <h2 className="text-lg font-semibold">v1.1.1 Changelog, 8th September 2025</h2>
+                    <p className="text-md">This minor update focused on optimisation</p>
+                    <p className="text-md">- Reduced number of database queries</p>
+                    <p className="text-md">- Load time down from ~2000 ms to ~600 ms</p>
+                </div>
+
+                <div className="flex flex-col w-full lg:w-200 gap-4">
                     <h2 className="text-lg font-semibold">v1.1 Changelog, 7th September 2025</h2>
                     <p className="text-md">Introduced some major updates</p>
                     <p className="text-md">- Added default images for drinks without an image</p>
