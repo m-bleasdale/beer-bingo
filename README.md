@@ -65,6 +65,17 @@ Additionally, the top 3 most consumed drinks are shown.
 
 <img width="1393" height="675" alt="image" src="https://github.com/user-attachments/assets/306c7d1f-6bc5-41f3-953b-937d056eac23" />
 
+<br />
+<br />
+
+Users can also see a list of drinks they have consumed in the last 12 hours.
+
+<br />
+
+<img width="1402" height="499" alt="image" src="https://github.com/user-attachments/assets/3b077a2b-cd62-4fb8-9375-da89d08b922c" />
+
+<br />
+
 ---
 
 ### User Management
