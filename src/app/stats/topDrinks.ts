@@ -1,8 +1,7 @@
-import { Drink } from "@/types/drink";
 import { StatDataPoint } from "@/types/stat-data-point";
 import { createClient } from "@/utils/supabase/server";
 
-export default async function topDrinks(history: StatDataPoint[], topN = 3, userID: string) {
+export default async function topDrinks(history: StatDataPoint[], topN = 3) {
 	const supabase = await createClient();
 
 	// Count drinks by drink_id
@@ -19,29 +18,37 @@ export default async function topDrinks(history: StatDataPoint[], topN = 3, user
 	// Return top N
 	const topDrinkList = sorted.slice(0, topN);
 
+	//Fetch available drink images
+	const { data: drinkImages, error: drinkImages_error } = await supabase.storage
+		.from("drinks")
+		.list("");
+	
+	const drinkIDsWithImage = drinkImages?.map(image => image.name.replace(/\.png$/i, "")) 
+		?? [];
+
 	let topDrinks = [];
 
 	//Retrieve data
     for (const drink of topDrinkList) {
-        const { data: image } = supabase.storage
-            .from('drinks')
-            .getPublicUrl(`${drink.drink_id}.png`, 
-                {
-                transform: { height: 500, width: 500, resize: "contain"},
-            	}
-            );
-            
+
 		const { data: drinkData } = await supabase
 			.from('drinks')
 			.select('id, name, type, abv')
 			.eq('id', drink.drink_id)
 			.limit(1)
 			.single();
+
+		if(!drinkData) continue;
+
+		const drinkHasImage = drinkIDsWithImage.includes(drink.drink_id);
+		const imageURL = drinkHasImage
+            ? supabase.storage.from('drinks').getPublicUrl(`${drink.drink_id}.png`,{ transform: { height: 500, width: 500, resize: "contain"} }).data.publicUrl
+            : `/defaults/${drinkData.type}.png`;
     
 		topDrinks.push({
 			drink: drinkData,
 			count: drink.count,
-			imageURL: image.publicUrl
+			imageURL: imageURL
 		})
     }
 

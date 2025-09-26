@@ -6,6 +6,7 @@ import StatCard from "@/components/stat-card";
 import StatChart from "@/components/stat-chart";
 import topDrinks from "./topDrinks";
 import Image from "next/image";
+import LastDrinks from "@/components/stat-last-drinks";
 
 export default async function Stats () {
     const supabase = await createClient();
@@ -34,7 +35,7 @@ export default async function Stats () {
     const thisMonthChange = periodChange.drinksChangeThisMonth(history);
     const thisWeekChange = periodChange.drinksChangeThisWeek(history);
 
-    const top3Drinks = await topDrinks(history, 3, user_data.user.id);
+    const top3Drinks = await topDrinks(history, 3);
     
     return (
         <div className="flex flex-col items-center gap-10">
@@ -63,7 +64,7 @@ export default async function Stats () {
                 />
             </div>
             <StatChart history={history} />
-            <div className="flex flex-col items-center gap-5 w-full">
+            <div className="flex flex-col items-center gap-5 w-full mt-10">
                 <h2 className="text-2xl font-medium">Top Drinks</h2>
                 <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-20 lg:gap-y-15 gap-8 items-center">
                     {top3Drinks.map((data, index) => {
@@ -99,6 +100,10 @@ export default async function Stats () {
                         )
                     })}
                 </div>
+            </div>
+            <div className="flex flex-col gap-5 w-full items-center mt-10 pb-5">
+                <h2 className="text-2xl font-medium">Last 12 Hours</h2>
+                <LastDrinks history={history} />
             </div>
         </div>
     )

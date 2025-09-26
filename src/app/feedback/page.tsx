@@ -26,6 +26,13 @@ export default function Page () {
                 </a>
 
                 <div className="flex flex-col w-full lg:w-200 gap-4">
+                    <h2 className="text-lg font-semibold">v1.1.2 Changelog, 26th September 2025</h2>
+                    <p className="text-md">Based on the last round of community feedback, the following has been updated:</p>
+                    <p className="text-md">- Fixed default drink images not appearing for user-generated drinks in stats menu</p>
+                    <p className="text-md">- Added "Last 12 Drinks" table in stats menu</p>
+                </div>
+
+                <div className="flex flex-col w-full lg:w-200 gap-4">
                     <h2 className="text-lg font-semibold">v1.1.1 Changelog, 8th September 2025</h2>
                     <p className="text-md">This minor update focused on optimisation</p>
                     <p className="text-md">- Reduced number of database queries</p>
