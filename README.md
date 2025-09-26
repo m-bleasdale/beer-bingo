@@ -1,7 +1,7 @@
 # Beer Bingo 
 ---
 
-Website: [beerbingo.co.uk](https://www.beerbingo.co.uk/) | v1.1.1
+Website: [beerbingo.co.uk](https://www.beerbingo.co.uk/) | v1.1.2
 
 ---
 
